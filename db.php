@@ -4,8 +4,8 @@ require ('vendor/autoload.php');
   DB STRUCTURE:
   
   DOODLE
-    ⊢->TITLE
-    ⊢-> FECHAS
+    ⊢-> TITLE
+    ⊢-> DATES
     ︳      ﹂DAY
     ︳         ﹂HOURS
     ﹂USERS
