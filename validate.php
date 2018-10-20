@@ -14,5 +14,5 @@
     }
 
     print_r($array);
-    $coleccion->insertOne(["title" => "froodle13", "dates" => $array]);
+    $coleccion->insertOne(["title" => $title, "dates" => $array]);
 ?>
