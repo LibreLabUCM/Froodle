@@ -6,7 +6,7 @@ Proyecto molón creado por estudiantes de [LibreLabUCM](https://librelabucm.org/
 you can find the corresponding code license for Froodle in the [LICENSE](LICENSE) file
 
 ## Authors
-LibreLabUCM students:
+LibreLabUCM members:
 - Pedro J
 - Daniel
 - Daniel (2)
