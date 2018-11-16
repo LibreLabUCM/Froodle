@@ -28,7 +28,7 @@
       <center><h3>froodles created</h3></center>
 
 
-      <button onclick="location.href='https://librelabucm.org/create_froodle.php'">Create Froodle</button>
+      <button onclick="location.href='modules/createFroodle.php'">Create Froodle</button>
       <p>What is froodle? <span onclick="location.href='https://librelabucm.org/'">Follow the Froodle team</span></p>
 	  </div>
   </div>
