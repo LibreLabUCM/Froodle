@@ -1,34 +1,41 @@
-const TITLE = document.getElementById('title');
-const DATE_FORM = document.getElementById('date');
-const TIME_FORM = document.getElementById('time');
-const ADD_DATE_BTN = document.getElementById('add_date');
-const ADD_FROODLE = document.getElementById('add_froodle')
-let dates = [];
 
-ADD_DATE_BTN.addEventListener('click', addDate);
-ADD_FROODLE.addEventListener('click', addFroodle);
+  var dates = [];
+  const enviar = document.getElementById('enviar');
+  const crear = document.getElementById('crear');
 
-function addDate(){
-  //añado la fecha a un array y al ui:
-  let date = DATE_FORM.value;
-  let time = TIME_FORM.value;
-  fechas.innerHTML += '<p>' + date + " " +  time + ' <button class = "btn btn-danger" onclick = "eliminar(this.parentElement, date)"> Eliminar </button></p>';
-  dates.push({'date':date,'time':time})
-}
-function eliminar(e, date){
-  //eliminamos la fecha del array y del ui:
-  let index = dates.indexOf(date);
-  dates.splice(index, 1)
-  e.parentNode.removeChild(e);
-}
+  enviar.addEventListener('click' , addDate);
+  crear.addEventListener('click', addFroodle);
 
-function addFroodle(){
-  //monto un array y lo paso a php...:
-  let title = TITLE.value;
-  dates.splice(0, 0, title);
-  $.post('validate.php', {value: dates},
-   function(data){
-     console.log(data);
-   });
-  //antes de meter el array en la db habria que formatearlo un poco...
-}
+  function addDate(){
+
+    let includes = false;
+    const titulo = document.getElementById('titulo').value;
+    var date = document.getElementById('fecha').value;
+    var time = document.getElementById('hora').value;
+
+    //compruebo si el date ya se encuentra en alguna entrada anterior:
+    for(entry of dates){
+      if(entry.date.includes(date)){
+        includes = true;
+      }else{
+        includes = false;
+      }
+    }
+    if(includes){
+      //en este caso sólo meto la hora
+      entry.hours.push({'hour': time});
+    }else{
+      //en otro caso tengo que crear una entrada nueva entera del array
+      dates.push({'date': date, 'hours' : [{'hour': time}]});
+    }
+  }
+
+  function addFroodle(){
+    let title = titulo.value;
+    dates.splice(0, 0, title);
+    $.post('validate.php', {value: dates},
+    function(data){
+      console.log(data);
+      window.location = "modules/froodleCreated.php?title=" + title;
+    });
+  }
