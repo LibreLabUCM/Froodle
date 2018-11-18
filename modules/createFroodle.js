@@ -33,9 +33,9 @@
   function addFroodle(){
     let title = titulo.value;
     dates.splice(0, 0, title);
-    $.post('validate.php', {value: dates},
+    $.post('validateFroodle.php', {value: dates},
     function(data){
       console.log(data);
-      window.location = "modules/froodleCreated.php?title=" + title;
+      window.location = "froodleCreated.php?title=" + title;
     });
   }
