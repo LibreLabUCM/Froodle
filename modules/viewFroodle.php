@@ -8,43 +8,14 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
-    <table>
-      <tr>
-        <th>Username</th>
-          <?php
+    <span>Inserte el titulo de su froodle aqui</span>
+    <input type="text" id = "titulo" name="titulo" value="" placeholder="titulo">
+    <button type="button" id = "enviar" name="button">Enviar</button>
+    <div id = "container">
 
-          $result = $coleccion -> findOne(array('title' => "Froodle2"));
-          foreach($result['dates'] as $date){
-            foreach($date['time'] as $time){
-              echo "<th>";
-              echo $date['date'] . "<br>";
-              echo $time['hour'];
-              echo "</th>";
-            }
-
-          }
-           ?>
-        </th>
-      </tr>
-      <?php
-
-      $result = $coleccion -> findOne(array('title' => "Froodle2"));
-      foreach($result['user'] as $user){
-        echo "<tr>";
-        echo "<td>";
-        echo $user['username'];
-        echo "</td>";
-        foreach($user['options'] as $options){
-          echo "<td>";
-          echo $options;
-          echo "</td>";
-        }
-        echo "</tr>";
-
-      }
-
-       ?>
-    </table>
+    </div>
 
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script src = "viewFroodle.js"></script>
 </html>
