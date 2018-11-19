@@ -75,3 +75,16 @@ body{
   cursor:pointer;
   color:#666;
 }
+
+/* table styles */
+table{
+  border-collapse:collapse;
+}
+table td, table th{
+  border:2px solid #ddd;
+  text-align: left;
+  padding:8px;
+}
+table tr:nth-child(even){
+  background-color:#ddd;
+}
