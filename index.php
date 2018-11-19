@@ -28,7 +28,6 @@
         }
         echo $counter;
 
-
       ?>
 
     </h2>
@@ -36,6 +35,8 @@
 
 
       <button onclick="location.href='modules/createFroodle.html'">Create Froodle</button>
+      <p>or</p>
+      <button onclick = "location.href = 'modules/viewFroodle.php'" type="button" name="button">View your froodle</button>
       <p>What is froodle? <span onclick="location.href='https://librelabucm.org/'">Follow the Froodle team</span></p>
       <p>Powered by librelab ucm</p>
     </div>

@@ -11,7 +11,7 @@ body{
 
 .inner-container{
   width:400px;
-  height:400px;
+  height:500px;
   position:absolute;
   top:calc(50vh - 200px);
   left:calc(50vw - 200px);
