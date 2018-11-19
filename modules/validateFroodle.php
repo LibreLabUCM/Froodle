@@ -1,5 +1,5 @@
 <?php
-    require ('vendor/autoload.php');
+    require ('../vendor/autoload.php');
 
     $cliente = new MongoDB\Client("mongodb://localhost:27017");
     $coleccion = $cliente->froodle->test;
@@ -10,7 +10,7 @@
     $array = array();
     for($i = 0; $i < count($val) - 1; $i++){
       $arr = $val[$i + 1];
-      array_push($array, array('date'=> $arr['date'], 'time'=> $arr['time']));
+      array_push($array, array('date'=> $arr['date'], 'time'=> $arr['hours']));
     }
 
     print_r($array);

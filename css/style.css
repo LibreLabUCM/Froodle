@@ -1,25 +1,22 @@
 body{
   padding:0;
   margin:0;
-}
-.vid-container{
-  position:relative;
+  background:url("../images/trianglify.png");
   height:100vh;
-  overflow:hidden;
+  background-position: center;
+   background-repeat: no-repeat;
+  background-size:cover;
+  text-align: center;
 }
-.bgvid{
-  position:absolute;
-  left:0;
-  top:0;
-  width:100vw;
-}
+
 .inner-container{
   width:400px;
-  height:400px;
+  height:500px;
   position:absolute;
   top:calc(50vh - 200px);
   left:calc(50vw - 200px);
   overflow:hidden;
+  border-radius:7px;
 }
 .bgvid.inner{
   top:calc(-50vh + 200px);
@@ -77,4 +74,17 @@ body{
 .box p span{
   cursor:pointer;
   color:#666;
+}
+
+/* table styles */
+table{
+  border-collapse:collapse;
+}
+table td, table th{
+  border:2px solid #ddd;
+  text-align: left;
+  padding:8px;
+}
+table tr:nth-child(even){
+  background-color:#ddd;
 }
