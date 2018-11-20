@@ -6,19 +6,68 @@ require_once(__DIR__ . '/sendMail.php');
 
 $collectionUsers = $cliente->froodle->users;
 
+function setupSession() {
+  if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
+}
+
 function registerUser($username, $password, $email) {
   global $collectionUsers;
+
+  $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
   $user =  [
     'uuid' => gen_uuid(),
     'username' => $username,
-    'password' => $password,
+    'password' => $hashedPassword,
     'email' => $email,
     'registrationDate' => time(),
     'otp' => []
   ];
 
   $collectionUsers->insertOne($user);
+}
+
+function checkCredentials($triedPassword, $passwordHash) {
+  return password_verify($triedPassword, $passwordHash);
+}
+
+function login($username, $password) {
+  $user = $collectionUsers->findOne(['username' => $username]);
+  if (empty($user) || $user === false || $user === NULL) {
+    $user = $collectionUsers->findOne(['email' => $username]); // admit logins with email
+    if (empty($user) || $user === false || $user === NULL) {
+      return false;
+    }
+  }
+  if (!checkCredentials($password, $user['password'])) {
+    return false;
+  }
+  forceLogin($user['uuid']);
+}
+
+function forceLogin($uuid) {
+  setupSession();
+  $user = $collectionUsers->findOne(['uuid' => $uuid]);
+  if (empty($user) || $user === false || $user === NULL) {
+    return false;
+  } else {
+    $_SESSION['loggedIn'] = $user['uuid'];
+    return true;
+  }
+}
+
+function getLoggedIn() {
+  setupSession();
+  if (empty($_SESSION['loggedIn']) || !$_SESSION['loggedIn']) {
+    return false;
+  }
+  $user = $collectionUsers->findOne(['uuid' => $_SESSION['loggedIn']]);
+  if (empty($user) || $user === false || $user === NULL) {
+    return false;
+  }
+  return $user;
 }
 
 
