@@ -7,36 +7,26 @@ body{
    background-repeat: no-repeat;
   background-size:cover;
   text-align: center;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .inner-container{
-  width:400px;
-  height:500px;
-  position:absolute;
-  top:calc(50vh - 200px);
-  left:calc(50vw - 200px);
-  overflow:hidden;
-  border-radius:7px;
-}
-.bgvid.inner{
-  top:calc(-50vh + 200px);
-  left:calc(-50vw + 200px);
-  filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='10'%20/></filter></svg>#blur");
-  -webkit-filter:blur(10px);
-  -ms-filter: blur(10px);
-  -o-filter: blur(10px);
-  filter:blur(10px);
+  min-width:400px;
+  width:70%;
+
 }
 .box{
-  position:absolute;
-  height:100%;
-  width:100%;
+  border-radius:7px;
   font-family:Helvetica;
   color:#fff;
   background:rgba(0,0,0,0.13);
   padding:30px 0px;
 }
 .box h1{
+  font-family: 'Berkshire Swash', cursive;
   text-align:center;
   margin:30px 0;
   font-size:30px;
@@ -87,4 +77,12 @@ table td, table th{
 }
 table tr:nth-child(even){
   background-color:#ddd;
+}
+
+/*froodleCreated styles*/
+.options > input {
+  display:inline-block;
+  margin:0 10px;
+  width:auto;
+  padding:0;
 }

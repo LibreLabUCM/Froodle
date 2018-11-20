@@ -7,6 +7,7 @@
     <title>Welcome to froodle</title>
     <!--Link Css Sheets-->
     <link rel="stylesheet" href="css/style.css">
+     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet"> 
   </head>
 
   <body>
@@ -17,21 +18,21 @@
 
       <h1>Froodle</h1>
 
-    <h2 id="demo">
+      <h2 id="demo">
 
-      <?php
+        <?php
 
-        $result = $coleccion -> find();
-        $counter = 0;
-        foreach($result as $entry){
-          $counter++;
-        }
-        echo $counter;
+          $result = $coleccion -> find();
+          $counter = 0;
+          foreach($result as $entry){
+            $counter++;
+          }
+          echo $counter;
 
-      ?>
+        ?>
 
-    </h2>
-    <h3>froodles created</h3>
+      </h2>
+      <h3>froodles created</h3>
 
 
       <button onclick="location.href='modules/createFroodle.html'">Create Froodle</button>
@@ -41,7 +42,7 @@
       <p>Powered by librelab ucm</p>
     </div>
   </div>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
   </body>
 </html>
