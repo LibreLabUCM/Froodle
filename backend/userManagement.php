@@ -15,6 +15,17 @@ function setupSession() {
 function registerUser($username, $password, $email) {
   global $collectionUsers;
 
+  $user = $collectionUsers->findOne(['username' => $username]);
+  if (!empty($user)) {
+    throw new Exception('Username not available');
+    return false;
+  }
+  $user = $collectionUsers->findOne(['email' => $email]);
+  if (!empty($user)) {
+    throw new Exception('Email not available');
+    return false;
+  }
+
   $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
   $user =  [
@@ -27,6 +38,8 @@ function registerUser($username, $password, $email) {
   ];
 
   $collectionUsers->insertOne($user);
+
+  return true;
 }
 
 function checkCredentials($triedPassword, $passwordHash) {
@@ -34,6 +47,7 @@ function checkCredentials($triedPassword, $passwordHash) {
 }
 
 function login($username, $password) {
+  global $collectionUsers;
   $user = $collectionUsers->findOne(['username' => $username]);
   if (empty($user) || $user === false || $user === NULL) {
     $user = $collectionUsers->findOne(['email' => $username]); // admit logins with email
@@ -44,11 +58,12 @@ function login($username, $password) {
   if (!checkCredentials($password, $user['password'])) {
     return false;
   }
-  forceLogin($user['uuid']);
+  return forceLogin($user['uuid']);
 }
 
 function forceLogin($uuid) {
   setupSession();
+  global $collectionUsers;
   $user = $collectionUsers->findOne(['uuid' => $uuid]);
   if (empty($user) || $user === false || $user === NULL) {
     return false;
@@ -58,8 +73,15 @@ function forceLogin($uuid) {
   }
 }
 
+function logout() {
+  setupSession();
+  $_SESSION['loggedIn'] = '';
+  unset($_SESSION['loggedIn']);
+}
+
 function getLoggedIn() {
   setupSession();
+  global $collectionUsers;
   if (empty($_SESSION['loggedIn']) || !$_SESSION['loggedIn']) {
     return false;
   }
