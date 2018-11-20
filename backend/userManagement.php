@@ -89,7 +89,7 @@ function generateEmailActivationOtp($uuid) {
 
   $collectionUsers->updateOne(['uuid' => $uuid], ['$push' => ['otp' => $otp]]);
 
-
+  /*
   $mail = new CustomMailer(true);
   try {
     $mail->addAddress($user['email'], $user['username']);
@@ -101,5 +101,6 @@ function generateEmailActivationOtp($uuid) {
   } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
   }
+  */
 
 }
