@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__ . '/../db.php');
+
 /**
  * Generates a random string to be used as a Unique User ID
  * It uses microtime to be sure calls to this function at different times return different values (accurate to a millionth o a second)
@@ -39,4 +41,22 @@ function gen_randStr($length = 32, $keyspace = '0123456789abcdefghijklmnopqrstuv
         $pieces []= $keyspace[random_int(0, $max)];
     }
     return implode('', $pieces);
+}
+
+
+function getDatabaseConfigVal($key) {
+  global $cliente;
+  $collectionConfig = $cliente->froodle->config;
+  $config = $collectionConfig->findOne(['configKey' => $key]);
+  if (empty($config) || $config === false || $config === NULL) {
+    return false;
+  }
+  return $config;
+}
+
+function setDatabaseConfigVal($key, $val) {
+  global $cliente;
+  $collectionConfig = $cliente->froodle->config;
+  $val['configKey'] = $key;
+  $collectionConfig->updateOne(['configKey' => $key], ['$set' => $val], ['upsert' => true]);
 }
