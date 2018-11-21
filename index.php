@@ -7,11 +7,11 @@
     <title>Welcome to froodle</title>
     <!--Link Css Sheets-->
     <link rel="stylesheet" href="css/style.css">
-     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
   </head>
 
   <body>
-
+  <?php include 'modules/menu.html' ?>
   <div class="inner-container">
 
     <div class="box">
@@ -35,7 +35,7 @@
       <h3>froodles created</h3>
 
 
-      <button onclick="location.href='modules/createFroodle.html'">Create Froodle</button>
+      <button onclick="location.href='modules/createFroodle.php'">Create Froodle</button>
       <p>or</p>
       <button onclick = "location.href = 'modules/viewFroodle.php'" type="button" name="button">View your froodle</button>
       <p>What is froodle? <span onclick="location.href='https://librelabucm.org/'">Follow the Froodle team</span></p>

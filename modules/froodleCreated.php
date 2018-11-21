@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
+    <?php include 'menu.html' ?>
     <div class="inner-container">
       <div class="box">
         <form class="" action="options.php" method="post">

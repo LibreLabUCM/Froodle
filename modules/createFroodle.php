@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <?php include 'menu.html' ?>
   <div class="inner-container">
     <div class="box">
       <input type="text" id="titulo" name="" value="" placeholder="titulo">
