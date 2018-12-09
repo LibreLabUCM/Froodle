@@ -21,5 +21,5 @@ LibreLabUCM members:
 
 ## Workspace
 ```sh
-$ composer require mongodb/mongodb
+$ composer install
 ```
