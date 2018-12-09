@@ -5,17 +5,19 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.css">
 </head>
 
 <body>
   <?php include 'menu.html' ?>
   <div class="inner-container">
     <div class="box">
-      <input type="text" id="titulo" name="" value="" placeholder="titulo">
+      <input type="text" id="titulo" name="" value="" placeholder="Titulo">
       <br>
-      <input type="date" id="fecha" name="" value="">
+      <input type="text" id="fecha" name="" value="" placeholder = "Fecha" >
       <br>
-      <input type="time" id="hora" name="" value="">
+      <input type="text" id="hora" name="" value="" placeholder = "Hora">
       <br>
       <button type="button" id="enviar" name="button">Add date</button>
       <br>
@@ -28,4 +30,10 @@
 
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $('#fecha').dateDropper();
+  $('#hora').timeDropper();
+</script>
 <script src="createFroodle.js"></script>
