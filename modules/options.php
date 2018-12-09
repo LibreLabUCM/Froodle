@@ -9,30 +9,34 @@
     <link rel="stylesheet" href="../css/style.css">
     </head>
   <body>
+    <?php include 'menu.html' ?>
     <div class="inner-container">
-      <?php
+      <div class="box">
+        <?php
 
-      $name = $_POST['username'];
+        $name = $_POST['username'];
 
-      $limit = $_POST['qty'];
-      $title = $_POST['title'];
+        $limit = $_POST['qty'];
+        $title = $_POST['title'];
 
-      $arr = array();
-      for($i = 0; $i < $limit; $i++){
-        array_push($arr, ($_POST['option'.$i]));
-      }
+        $arr = array();
+        for($i = 0; $i < $limit; $i++){
+          array_push($arr, ($_POST['option'.$i]));
+        }
 
-      $coleccion->updateOne(
-        ['title' => $title],
-        ['$push' => ['user' => [
-          'username' => $name,
-          'options' => $arr
-          ]]]
-      );
+        $coleccion->updateOne(
+          ['title' => $title],
+          ['$push' => ['user' => [
+            'username' => $name,
+            'options' => $arr
+            ]]]
+        );
 
-      echo "Gracias por usar froodle, tus datos se han recogido con éxito";
+        echo "Gracias por usar froodle, tus datos se han recogido con éxito";
 
-      ?>
+        ?>
+      </div>
+
     </div>
   </body>
 </html>
