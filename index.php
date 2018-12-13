@@ -1,7 +1,7 @@
 <?php require ('db.php'); ?>
 <!--this will allow us to call all the php code from this page if needed-->
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <title>Welcome to froodle</title>

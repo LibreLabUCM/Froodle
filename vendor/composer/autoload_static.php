@@ -11,6 +11,10 @@ class ComposerStaticInit514acdb7992f01b3ad4dee9882cffdde
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'M' => 
         array (
             'MongoDB\\' => 8,
@@ -18,6 +22,10 @@ class ComposerStaticInit514acdb7992f01b3ad4dee9882cffdde
     );
 
     public static $prefixDirsPsr4 = array (
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'MongoDB\\' => 
         array (
             0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
