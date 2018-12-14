@@ -10,7 +10,7 @@ echo "<table>
   <tr>
     <th>Username</th>";
 
-      $result = $coleccion -> findOne(array('title' => "Froodle2"));
+      $result = $coleccion -> findOne(array('title' => $title));
       foreach($result['dates'] as $date){
         foreach($date['time'] as $time){
           echo "<th>";
