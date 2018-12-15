@@ -6,8 +6,8 @@ $coleccion = $cliente->froodle->test;
 
 $title = $_POST['value'];
 
-echo "<table>
-  <tr>
+echo "<table class = 'table table-dark table-striped'>
+  <thead><tr>
     <th>Username</th>";
 
       $result = $coleccion -> findOne(array('title' => $title));
@@ -21,7 +21,7 @@ echo "<table>
 
       }
     echo "</th>
-  </tr>";
+  </tr></thead><tbody>";
 
   $result = $coleccion -> findOne(array('title' => $title));
   foreach($result['user'] as $user){
@@ -30,13 +30,20 @@ echo "<table>
           $user['username']
     .    "</td>";
     foreach($user['options'] as $options){
-      echo "<td>" .
-            $options
-          ."</td>";
+      if($options == 'yes'){
+        echo "<td class = 'text-success'>" .
+              $options
+            ."</td>";
+      }else if($options == 'no'){
+        echo "<td class = 'text-danger'>" .
+              $options
+            ."</td>";
+      }
+
     }
     echo "</tr>";
 
   }
 
-echo "</table>";
+echo "</tbody></table>";
 ?>
