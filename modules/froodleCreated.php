@@ -21,28 +21,47 @@
           <?php
 
             $title = $_GET['title'];
-
-            echo "froodle title: ". $title . '<br><br>';
-            echo "options: " . "<br>";
-
-
             $result = $coleccion -> findOne(array('title' => $title));
             $counter = 0;
+            echo "<div class = 'container bg-dark pt-3 pb-3 rounded border'>
+                    <div class = 'row'>
+                      <div class = 'col'><h4>". $title ."</h4></div>
+                    </div>
+                    <div class = 'row'>";
+
             foreach($result['dates'] as $date){
-              echo "dia: ". $date['date'];
-              echo "<ul>";
+              echo "<div class = 'col-xs-12 col-sm'><h5>". $date['date'] . "</h5></div>";
+              // echo "<div class = 'd-block d-sm-none'>";
               foreach ($date['time'] as $time) {
-                echo "<li  class = 'options'>  hora: " . $time['hour'] ;
+                echo "<div class = 'col-xs-12 col d-block d-sm-none'>";
+                echo "<p  class = 'options'>" . $time['hour'] . "</p>";
                 echo "<input type = 'radio' name = 'option".$counter."' value = 'yes'>YES";
+                echo "<br>";
                 echo "<input type = 'radio' name = 'option".$counter."' value = 'no'>NO";
-                echo "</li>";
+                echo "</div>";
                 $counter++;
               }
-              echo "</ul>";
+              //echo "</div>";
+            }
+            echo "</div>";
+            echo "<div class = 'd-none d-sm-block'><div class = 'row'>";
+            foreach($result['dates'] as $date){
+              foreach ($date['time'] as $time) {
+                echo "<div class = 'col'>";
+                echo "<p  class = 'options'>" . $time['hour'] . "</p>";
+                echo "<input type = 'radio' name = 'option".$counter."' value = 'yes'>YES";
+                echo "<br>";
+                echo "<input type = 'radio' name = 'option".$counter."' value = 'no'>NO";
+                echo "</div>";
+                $counter++;
+              }
+
               echo "<input type = 'hidden' name = 'qty' value = ".$counter.">";
               echo "<input type = 'hidden' name = 'title' value = ".$title.">";
             }
+            echo "</div></div></div>";
           ?>
+
           <br>
           <br>
           <button type="submit" name="button" id = "submit">Submit options</button>
