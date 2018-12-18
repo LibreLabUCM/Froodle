@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
-    <?php include 'menu.html' ?>
+    <?php include 'menu.php' ?>
     <div class="inner-container">
       <div class="box">
         <span>Inserte el titulo de su froodle aqui</span>
