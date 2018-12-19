@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <?php include 'menu.html' ?>
+  <?php include 'menu.php' ?>
   <div class="inner-container">
     <div class="box">
       <input type="text" id="titulo" name="" value="" placeholder="Titulo">

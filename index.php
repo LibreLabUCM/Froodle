@@ -11,7 +11,8 @@
   </head>
 
   <body>
-  <?php include 'modules/menu.html' ?>
+
+  <?php include 'modules/menu.php' ?>
   <div class="inner-container">
 
     <div class="box">
