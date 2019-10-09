@@ -111,18 +111,4 @@ function generateEmailActivationOtp($uuid) {
 
   $collectionUsers->updateOne(['uuid' => $uuid], ['$push' => ['otp' => $otp]]);
 
-  /*
-  $mail = new CustomMailer(true);
-  try {
-    $mail->addAddress($user['email'], $user['username']);
-    $mail->isHTML(true);
-    $mail->Subject = 'Activate your account!';
-    $mail->Body    = "Your code: {$otp['otp']}";
-    $mail->send();
-    echo 'Message has been sent';
-  } catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-  }
-  */
-
 }
