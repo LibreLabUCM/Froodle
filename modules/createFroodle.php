@@ -19,6 +19,10 @@
       <br>
       <input type="text" id="hora" name="" value="" placeholder = "Hora">
       <br>
+      <input type="text" id="hora" name="" value="" placeholder = "Element">
+      <br>
+      <button type="button" id="add_element" name="button">Add element</button>
+      <br>
       <button type="button" id="enviar" name="button">Add date</button>
       <br>
       <button type="button" id="crear" name="button">Create froodle</button>

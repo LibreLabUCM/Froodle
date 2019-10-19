@@ -2,7 +2,9 @@
   var dates = [];
   const enviar = document.getElementById('enviar');
   const crear = document.getElementById('crear');
+  const add_element = document.getElementById('add_element');
 
+  add_element.addEventListener('click' , add_elements);
   enviar.addEventListener('click' , addDate);
   crear.addEventListener('click', addFroodle);
 
@@ -38,4 +40,8 @@
       console.log(data);
       window.location = "froodleCreated.php?title=" + title;
     });
+  }
+  function add_elements(){
+    console.log(element);
+    elements.push(element);
   }
