@@ -1,3 +1,4 @@
+// sendMail.php license under GPL v3
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -24,8 +25,6 @@ class CustomMailer extends PHPMailer {
     $this->Password = $smtpconfig['password'];            // SMTP password
     $this->SMTPSecure = $smtpconfig['SMTPSecure'];        // Enable TLS encryption, `ssl` also accepted
     $this->Port = $smtpconfig['port'];                    // TCP port to connect to
-
     $this->setFrom($smtpconfig['fromEmail'], $smtpconfig['fromName']);
   }
-
 }
