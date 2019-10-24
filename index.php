@@ -1,3 +1,4 @@
+<!-- index.php-->
 <?php require ('db.php'); ?>
 <!--this will allow us to call all the php code from this page if needed-->
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
      <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
   </head>
 
+  
   <body>
 
   <?php include 'modules/menu.php' ?>
@@ -39,11 +41,12 @@
       <button onclick="location.href='modules/createFroodle.php'">Create Froodle</button>
       <p>or</p>
       <button onclick = "location.href = 'modules/viewFroodle.php'" type="button" name="button">View your froodle</button>
-      <p>What is froodle? <span onclick="location.href='https://librelabucm.org/'">Follow the Froodle team</span></p>
-      <p>Powered by librelab ucm</p>
+      <p>What is Froodle? <span onclick="location.href='https://librelabucm.org/'">Follow the Froodle team</span></p>
+      <p>Powered by LibreLabUCM</p>
     </div>
   </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
   </body>
+  
 </html>
