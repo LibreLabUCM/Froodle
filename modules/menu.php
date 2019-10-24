@@ -1,7 +1,7 @@
 <?php
 require_once('backend/userManagement.php');
 
-
+<!-- Todo el código que contiene este archivo hace referencia al menú y requiere que se utilice userManagement.php -->
 $messages = [];
 if (!empty($_POST['action'])) {
   if ($_POST['action'] === 'login') {
